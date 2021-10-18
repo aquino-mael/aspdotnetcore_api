@@ -16,9 +16,9 @@ namespace Api.Service.services
       return await _repository.DeleteAsync(id);
     }
 
-    public Task<UserEntity> Get(Guid id)
+    public async Task<UserEntity> Get(Guid id)
     {
-      throw new NotImplementedException();
+      return await _repository.SelectAsync(id);
     }
 
     public Task<IEnumerable<UserEntity>> GetAll()
