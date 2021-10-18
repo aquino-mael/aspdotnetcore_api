@@ -31,9 +31,9 @@ namespace Api.Service.services
       return await _repository.InsertAsync(entity);
     }
 
-    public Task<UserEntity> Put(UserEntity entity)
+    public async Task<UserEntity> Put(UserEntity entity)
     {
-      throw new NotImplementedException();
+      return await _repository.UpdateAsync(entity);
     }
   }
 }
