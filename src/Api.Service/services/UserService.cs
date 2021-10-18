@@ -26,9 +26,9 @@ namespace Api.Service.services
       return await _repository.SelectAsync();
     }
 
-    public Task<UserEntity> Post(UserEntity entity)
+    public async Task<UserEntity> Post(UserEntity entity)
     {
-      throw new NotImplementedException();
+      return await _repository.InsertAsync(entity);
     }
 
     public Task<UserEntity> Put(UserEntity entity)
