@@ -9,7 +9,7 @@ namespace Api.Domain.Interfaces
   {
     Task<T> InsertAsync(T entity);
     Task<T> UpdateAsync(T entity);
-    Task<T> DeleteAsync(Guid id);
+    Task<bool> DeleteAsync(Guid id);
     Task<T> SelectAsync(Guid id);
     Task<IEnumerable<T>> SelectAsync();
   }
