@@ -1,0 +1,8 @@
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/bin/Debug/netcoreapp3.1/Data.deps.json
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/bin/Debug/netcoreapp3.1/Data.dll
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/bin/Debug/netcoreapp3.1/Data.pdb
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.AssemblyInfoInputs.cache
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.AssemblyInfo.cs
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.csproj.CoreCompileInputs.cache
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.dll
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.pdb
