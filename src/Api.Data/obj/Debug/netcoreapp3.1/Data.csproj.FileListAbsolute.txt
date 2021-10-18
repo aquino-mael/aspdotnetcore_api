@@ -6,3 +6,7 @@
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.csproj.CoreCompileInputs.cache
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.dll
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.pdb
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/bin/Debug/netcoreapp3.1/Data.runtimeconfig.json
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/bin/Debug/netcoreapp3.1/Data.runtimeconfig.dev.json
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.csprojAssemblyReference.cache
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Data/obj/Debug/netcoreapp3.1/Data.genruntimeconfig.cache
