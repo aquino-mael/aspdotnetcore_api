@@ -11,32 +11,27 @@ namespace Api.Service.services
   {
     private IRepository<UserEntity> _repository;
 
-    public UserService(IRepository<UserEntity> repository)
+    public async Task<bool> Delete(Guid id)
     {
-      _repository = repository;
+      return await _repository.DeleteAsync(id);
     }
 
-    Task<bool> IUserService.Delete(Guid id)
-    {
-      throw new NotImplementedException();
-    }
-
-    Task<UserEntity> IUserService.Get(Guid id)
+    public Task<UserEntity> Get(Guid id)
     {
       throw new NotImplementedException();
     }
 
-    Task<IEnumerable<UserEntity>> IUserService.GetAll()
+    public Task<IEnumerable<UserEntity>> GetAll()
     {
       throw new NotImplementedException();
     }
 
-    Task<UserEntity> IUserService.Post(UserEntity entity)
+    public Task<UserEntity> Post(UserEntity entity)
     {
       throw new NotImplementedException();
     }
 
-    Task<UserEntity> IUserService.Put(UserEntity entity)
+    public Task<UserEntity> Put(UserEntity entity)
     {
       throw new NotImplementedException();
     }
