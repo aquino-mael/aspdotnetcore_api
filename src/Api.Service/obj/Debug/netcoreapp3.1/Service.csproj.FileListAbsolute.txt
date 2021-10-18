@@ -1,11 +1,6 @@
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Service.deps.json
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Service.dll
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Service.pdb
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.AssemblyInfoInputs.cache
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.AssemblyInfo.cs
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.csproj.CoreCompileInputs.cache
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.dll
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.pdb
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/CrossCuting.dll
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Data.dll
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Domain.dll
@@ -13,4 +8,9 @@
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/Data.pdb
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/bin/Debug/netcoreapp3.1/CrossCuting.pdb
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.csprojAssemblyReference.cache
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.AssemblyInfoInputs.cache
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.AssemblyInfo.cs
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.csproj.CoreCompileInputs.cache
 /Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.csproj.CopyComplete
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.dll
+/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.Service/obj/Debug/netcoreapp3.1/Service.pdb
