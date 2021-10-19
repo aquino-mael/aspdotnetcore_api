@@ -1,9 +1,11 @@
 using Api.CrossCuting.DependencyInjection;
+using Api.Domain.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace Api
 {
@@ -21,6 +23,18 @@ namespace Api
     {
       ConfigureService.ConfigureDependenciesService(services);
       ConfigureRepository.ConfigureDependenciesRepository(services);
+
+      SigningConfigurations signingConfiguration = new SigningConfigurations();
+      services.AddSingleton(signingConfiguration);
+
+      TokenConfigurations tokenConfigurations = new TokenConfigurations();
+
+      new ConfigureFromConfigurationOptions<TokenConfigurations>(
+        Configuration.GetSection("TokenConfigurations"))
+          .Configure(tokenConfigurations);
+
+      services.AddSingleton(tokenConfigurations);
+
       services.AddControllers();
       services.AddSwaggerGen();
     }
