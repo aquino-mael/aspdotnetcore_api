@@ -1,9 +1,0 @@
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/bin/Debug/netcoreapp3.1/CrossCuting.deps.json
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/bin/Debug/netcoreapp3.1/CrossCuting.dll
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/bin/Debug/netcoreapp3.1/CrossCuting.pdb
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.csprojAssemblyReference.cache
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.AssemblyInfoInputs.cache
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.AssemblyInfo.cs
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.csproj.CoreCompileInputs.cache
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.dll
-/Users/efraimsantana/Documents/csharp/aspdotnetcore_api/src/Api.CrossCuting/obj/Debug/netcoreapp3.1/CrossCuting.pdb
