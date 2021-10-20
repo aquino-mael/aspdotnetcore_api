@@ -72,7 +72,11 @@ namespace Api.Service.services
       }
       else
       {
-        return null;
+        return new
+        {
+          authenticated = false,
+          message = "Falha ao autenticar. Favor verifique seu e-mail e senha.",
+        };
       }
     }
 
