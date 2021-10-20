@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Api.CrossCuting.DependencyInjection;
 using Api.Domain.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace Api
 {
@@ -61,7 +63,40 @@ namespace Api
       });
 
       services.AddControllers();
-      services.AddSwaggerGen();
+      services.AddSwaggerGen(swaggerGenOptions =>
+      {
+        swaggerGenOptions.SwaggerDoc("v1", new OpenApiInfo
+        {
+          Version = "v1",
+          Title = "Curso de API com AspNetCore 3.1 - Na Prática",
+          Description = "Arquitetura DDD",
+          TermsOfService = new Uri("http://mfrinfo.com.br"),
+          Contact = new OpenApiContact
+          {
+            Name = "Ismael Aquino",
+            Email = "ismaellAquino@hotmail.com",
+          },
+        });
+
+        swaggerGenOptions.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+          Description = "Gerar JWT",
+          Name = "Authorization",
+          In = ParameterLocation.Header,
+          Type = SecuritySchemeType.ApiKey,
+        });
+
+        swaggerGenOptions.AddSecurityRequirement(new OpenApiSecurityRequirement {
+          {
+            new OpenApiSecurityScheme {
+              Reference = new OpenApiReference {
+                Id = "Bearer",
+                Type = ReferenceType.SecurityScheme
+              }
+            }, new List<string>()
+          }
+        });
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,10 +109,10 @@ namespace Api
       app.UseSwagger();
 
       app.UseSwaggerUI(
-        c =>
+        swaggerUIOptions =>
         {
-          c.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de API com AspNetCore 3.1");
-          c.RoutePrefix = string.Empty;
+          swaggerUIOptions.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de API com AspNetCore 3.1");
+          swaggerUIOptions.RoutePrefix = string.Empty;
         }
       );
 
