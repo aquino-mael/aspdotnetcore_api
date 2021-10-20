@@ -16,7 +16,7 @@ namespace Api.CrossCuting.DependencyInjection
       serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
       serviceCollection.AddDbContext<MyContext>(
-        options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=root753951")
+        options => options.UseSqlServer("Server=localhost;Initial Catalog=dbapi;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!")
       );
     }
   }
