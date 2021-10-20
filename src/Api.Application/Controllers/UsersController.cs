@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Api.Domain.Entities;
+using Api.Domain.Dtos.User;
 using Api.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +44,11 @@ namespace Api.Application.Controllers
 
       try
       {
-        return Ok(await _service.Get(id));
+        var user = await _service.Get(id);
+
+        if (user == null) return NotFound();
+
+        return Ok(user);
       }
       catch (ArgumentException e)
       {
@@ -54,7 +58,7 @@ namespace Api.Application.Controllers
 
     [Authorize("Bearer")]
     [HttpPost]
-    public async Task<ActionResult> Post([FromBody] UserEntity user)
+    public async Task<ActionResult> Post([FromBody] UserDtoCreate user)
     {
       if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -78,7 +82,7 @@ namespace Api.Application.Controllers
 
     [Authorize("Bearer")]
     [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UserEntity user)
+    public async Task<ActionResult> Put([FromBody] UserDtoUpdate user)
     {
       if (!ModelState.IsValid) return BadRequest(ModelState);
 
