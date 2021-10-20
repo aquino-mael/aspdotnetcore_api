@@ -1,3 +1,4 @@
+using System;
 using Api.Data.Context;
 using Api.Data.Implementations;
 using Api.Data.Repository;
@@ -15,9 +16,18 @@ namespace Api.CrossCuting.DependencyInjection
       serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
       serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-      serviceCollection.AddDbContext<MyContext>(
-        options => options.UseSqlServer("Server=localhost;Initial Catalog=dbapi;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!")
-      );
+      if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
+      {
+        serviceCollection.AddDbContext<MyContext>(
+          options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION"))
+        );
+      }
+      else
+      {
+        serviceCollection.AddDbContext<MyContext>(
+          options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
+        );
+      }
     }
   }
 }

@@ -20,7 +20,10 @@
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
       },
       "env": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION": "Server=localhost;Initial Catalog=dbapi1;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!",
+        "DATABASE": "SQLSERVER",
+        "MIGRATION": "APPLY"
       },
       "sourceFileMap": {
         "/Views": "${workspaceFolder}/Views"
