@@ -42,13 +42,13 @@ namespace Api.Data.Test
         Assert.Equal(_entity.Email, _registerUpdate.Email);
         Assert.Equal(_entity.Name, _registerUpdate.Name);
 
-        var _existRegister = await _repository.ExistsAsync(_registerUpdate.Id);
+        var _existRegister = await _repository.ExistsAsync(_entity.Id);
         Assert.True(_existRegister);
 
-        var _selectedRegister = await _repository.SelectAsync(_registerUpdate.Id);
+        var _selectedRegister = await _repository.SelectAsync(_entity.Id);
         Assert.NotNull(_existRegister);
-        Assert.Equal(_registerUpdate.Email, _selectedRegister.Email);
-        Assert.Equal(_registerUpdate.Name, _selectedRegister.Name);
+        Assert.Equal(_entity.Email, _selectedRegister.Email);
+        Assert.Equal(_entity.Name, _selectedRegister.Name);
 
         var _allRegisters = await _repository.SelectAsync();
         Assert.NotNull(_allRegisters);
