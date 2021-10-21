@@ -35,7 +35,7 @@ namespace Api.Service.Test.User
           Email = Faker.Internet.Email(),
         };
 
-        userDtoList[i] = dto;
+        userDtoList.Add(dto);
       };
 
       userDto = new UserDto
