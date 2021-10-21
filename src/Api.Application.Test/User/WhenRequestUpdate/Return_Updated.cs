@@ -48,7 +48,6 @@ namespace Api.Application.Test.User.WhenRequestUpdate
 
       var returnedValue = ((OkObjectResult)result).Value as UserDtoUpdateResult;
       Assert.NotNull(returnedValue);
-      Assert.Equal(userDtoUpdate.Id, returnedValue.Id);
       Assert.Equal(userDtoUpdate.Name, returnedValue.Name);
       Assert.Equal(userDtoUpdate.Email, returnedValue.Email);
     }
