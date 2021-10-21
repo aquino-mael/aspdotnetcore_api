@@ -11,7 +11,7 @@ namespace Api.Service.Test.User
 
     private Mock<IUserService> _serviceMock;
 
-    [Fact(DisplayName = "When Execute Post Method")]
+    [Fact(DisplayName = "When execute post method.")]
     public async Task CanExecutePostMethod()
     {
       _serviceMock = new Mock<IUserService>();

@@ -14,7 +14,7 @@ namespace Api.Service.Test.User
 
     private Mock<IUserService> _serviceMock;
 
-    [Fact(DisplayName = "Whene execute GetAll Method")]
+    [Fact(DisplayName = "When execute get all method.")]
     public async Task CanExecuteGetAll()
     {
       _serviceMock = new Mock<IUserService>();

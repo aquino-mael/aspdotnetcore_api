@@ -9,6 +9,7 @@ namespace Api.Service.Test.User
   {
     private IUserService _service;
     private Mock<IUserService> _serviceMock;
+    [Fact(DisplayName = "When execute put method.")]
     public async Task CanExecutePut()
     {
       _serviceMock = new Mock<IUserService>();
