@@ -21,16 +21,38 @@ namespace Api
 {
   public class Startup
   {
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
     {
       Configuration = configuration;
+      _environment = environment;
     }
 
     public IConfiguration Configuration { get; }
+    public IWebHostEnvironment _environment { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      if (_environment.IsEnvironment("Testing"))
+      {
+        Environment.SetEnvironmentVariable(
+          "DB_CONNECTION",
+          @"
+          Server = localhost;
+          Initial Catalog = dbapi_Integration;
+          MultipleActiveResultSets = true;
+          User ID = sa;
+          Password = DockerSql2017!"
+        );
+        Environment.SetEnvironmentVariable("DATABASE", "SQLSERVER");
+        Environment.SetEnvironmentVariable("MIGRATION", "APPLY");
+        Environment.SetEnvironmentVariable("AUDIENCE", "ExempleAudience");
+        Environment.SetEnvironmentVariable("ISSUER", "ExempleIssuer");
+        Environment.SetEnvironmentVariable("TOKEN_SECONDS", "28800");
+      }
+
+      services.AddControllers();
+
       ConfigureService.ConfigureDependenciesService(services);
       ConfigureRepository.ConfigureDependenciesRepository(services);
 
@@ -76,7 +98,6 @@ namespace Api
                                 .RequireAuthenticatedUser().Build());
       });
 
-      services.AddControllers();
       services.AddSwaggerGen(swaggerGenOptions =>
       {
         swaggerGenOptions.SwaggerDoc("v1", new OpenApiInfo
@@ -125,7 +146,10 @@ namespace Api
       app.UseSwaggerUI(
         swaggerUIOptions =>
         {
-          swaggerUIOptions.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de API com AspNetCore 3.1");
+          swaggerUIOptions.SwaggerEndpoint(
+            "/swagger/v1/swagger.json",
+            "Curso de API com AspNetCore 3.1"
+          );
           swaggerUIOptions.RoutePrefix = string.Empty;
         }
       );

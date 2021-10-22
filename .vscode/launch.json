@@ -21,7 +21,7 @@
       },
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DB_CONNECTION": "Server=localhost;Initial Catalog=dbapi1;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!",
+        "DB_CONNECTION": "Server=localhost;Initial Catalog=dbapi;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!",
         "DATABASE": "SQLSERVER",
         "MIGRATION": "APPLY",
         "AUDIENCE": "ExempleAudience",
