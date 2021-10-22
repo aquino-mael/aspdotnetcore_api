@@ -23,7 +23,10 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DB_CONNECTION": "Server=localhost;Initial Catalog=dbapi1;MultipleActiveResultSets=true;User ID=sa;Password=DockerSql2017!",
         "DATABASE": "SQLSERVER",
-        "MIGRATION": "APPLY"
+        "MIGRATION": "APPLY",
+        "AUDIENCE": "ExempleAudience",
+        "ISSUER": "ExempleIssuer",
+        "TOKEN_SECONDS": "28800"
       },
       "sourceFileMap": {
         "/Views": "${workspaceFolder}/Views"
