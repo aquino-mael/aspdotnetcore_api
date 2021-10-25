@@ -15,12 +15,12 @@ namespace Api.Data.Mapping
       builder.HasIndex(p => p.Email)
              .IsUnique();
 
+      builder.Property(p => p.Email)
+             .HasMaxLength(100);
+
       builder.Property(u => u.Name)
              .IsRequired()
              .HasMaxLength(60);
-
-      builder.Property(u => u.Email)
-             .HasMaxLength(100);
     }
   }
 }
