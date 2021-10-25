@@ -21,6 +21,9 @@ namespace Api.Integration.Test
     [JsonProperty("username")]
     public string username { get; set; }
 
+    [JsonProperty("name")]
+    public string name { get; set; }
+
     [JsonProperty("message")]
     public string message { get; set; }
   }
