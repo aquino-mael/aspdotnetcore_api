@@ -10,6 +10,6 @@ namespace Api.Domain.Dtos.ZipCode
     public string Street { get; set; }
     public string Number { get; set; }
     public Guid CountyId { get; set; }
-    public CountyDtoComplet County { get; set; }
+    public CountyDtoComplete County { get; set; }
   }
 }
