@@ -3,7 +3,7 @@ using Api.Domain.Dtos.Uf;
 
 namespace Api.Domain.Dtos.County
 {
-  public class CountyDtoComplet
+  public class CountyDtoComplete
   {
     public Guid Id { get; set; }
     public string Name { get; set; }
