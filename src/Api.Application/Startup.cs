@@ -69,12 +69,6 @@ namespace Api
       SigningConfigurations signingConfiguration = new SigningConfigurations();
       services.AddSingleton(signingConfiguration);
 
-      TokenConfigurations tokenConfigurations = new TokenConfigurations();
-      new ConfigureFromConfigurationOptions<TokenConfigurations>(
-        Configuration.GetSection("TokenConfigurations"))
-          .Configure(tokenConfigurations);
-      services.AddSingleton(tokenConfigurations);
-
       services.AddAuthentication(authOptions =>
       {
         authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -84,8 +78,8 @@ namespace Api
         TokenValidationParameters paramsValidation = bearerOptions.TokenValidationParameters;
 
         paramsValidation.IssuerSigningKey = signingConfiguration.Key;
-        paramsValidation.ValidAudience = tokenConfigurations.Audience;
-        paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+        paramsValidation.ValidAudience = Environment.GetEnvironmentVariable("AUDIENCE");
+        paramsValidation.ValidIssuer = Environment.GetEnvironmentVariable("ISSUER");
         paramsValidation.ValidateIssuerSigningKey = true;
         paramsValidation.ValidateLifetime = true;
         paramsValidation.ClockSkew = TimeSpan.Zero;
