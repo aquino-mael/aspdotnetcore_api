@@ -4,11 +4,21 @@ using AutoMapper;
 
 namespace Api.CrossCuting.Mappings
 {
-  public class ModelToEntityProfile : Profile
-  {
-    public ModelToEntityProfile()
+    public class ModelToEntityProfile : Profile
     {
-      CreateMap<UserModel, UserEntity>().ReverseMap();
+        public ModelToEntityProfile()
+        {
+            CreateMap<UserModel, UserEntity>()
+                .ReverseMap();
+
+            CreateMap<UfModel, UfEntity>()
+                .ReverseMap();
+
+            CreateMap<CountyModel, CountyEntity>()
+                .ReverseMap();
+
+            CreateMap<ZipCodeModel, ZipCodeEntity>()
+                .ReverseMap();
+        }
     }
-  }
 }
