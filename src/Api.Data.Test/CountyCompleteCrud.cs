@@ -90,6 +90,8 @@ namespace Api.Data.Test
                 Assert.NotNull(_deletedResult);
                 Assert.True(_deletedResult);
 
+                // VALIDATION GETALL WITHOUT REGISTERS
+
                 _allRegisters = await _repository.SelectAsync();
                 Assert.NotNull(_allRegisters);
                 Assert.Empty(_allRegisters);
