@@ -10,7 +10,7 @@ namespace Api.Service.Test.AutoMapper
 {
   public class UserMapper : BaseTestService
   {
-    [Fact(DisplayName = "Transfer data from a model to an Entity")]
+    [Fact(DisplayName = "Transfer data from a model to an Entity.")]
     public void CanExecuteMapperFromModelToEntity()
     {
       var model = new UserModel
