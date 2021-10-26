@@ -49,6 +49,7 @@ namespace Api.Service.Test.AutoMapper
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow,
                 };
+                _entities.Add(_entity);
             }
 
             // MODEL => ENTITY
@@ -70,11 +71,11 @@ namespace Api.Service.Test.AutoMapper
             Assert.Equal(_toEntity.Number, _toDto.Number);
 
             var _toDtoComplete = Mapper.Map<ZipCodeDto>(_entities.FirstOrDefault());
-            Assert.NotNull(_toDto);
-            Assert.Equal(_entities.FirstOrDefault().Id, _toDto.Id);
-            Assert.Equal(_entities.FirstOrDefault().ZipCode, _toDto.ZipCode);
-            Assert.Equal(_entities.FirstOrDefault().Street, _toDto.Street);
-            Assert.Equal(_entities.FirstOrDefault().Number, _toDto.Number);
+            Assert.NotNull(_toDtoComplete);
+            Assert.Equal(_entities.FirstOrDefault().Id, _toDtoComplete.Id);
+            Assert.Equal(_entities.FirstOrDefault().ZipCode, _toDtoComplete.ZipCode);
+            Assert.Equal(_entities.FirstOrDefault().Street, _toDtoComplete.Street);
+            Assert.Equal(_entities.FirstOrDefault().Number, _toDtoComplete.Number);
             Assert.NotNull(_toDtoComplete.County);
             Assert.NotNull(_toDtoComplete.County.Uf);
 
