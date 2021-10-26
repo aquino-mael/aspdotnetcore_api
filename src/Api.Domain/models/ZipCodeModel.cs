@@ -2,11 +2,11 @@ namespace Api.Domain.models
 {
     public class ZipCodeModel : BaseModel
     {
-        private string _cep;
-        public string Cep
+        private string _zipCode;
+        public string ZipCode
         {
-            get { return _cep; }
-            set { _cep = value; }
+            get { return _zipCode; }
+            set { _zipCode = value; }
         }
         private string _street;
         public string Street
