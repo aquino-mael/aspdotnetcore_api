@@ -34,6 +34,12 @@ namespace Api.Service.Test.AutoMapper
                     UfId = Guid.NewGuid(),
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow,
+                    Uf = new UfEntity
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = Faker.Name.FullName(),
+                        Initials = Faker.Address.UsStateAbbr(),
+                    }
                 };
 
                 _entities.Add(_entity);
@@ -49,13 +55,36 @@ namespace Api.Service.Test.AutoMapper
             Assert.Equal(_model.CreatedAt, _toEntity.CreatedAt);
             Assert.Equal(_model.UpdatedAt, _toEntity.UpdatedAt);
 
+            // MODEL => CREATE
+            var _countyDtoCreate = Mapper.Map<CountyDtoCreate>(_model);
+            Assert.NotNull(_countyDtoCreate);
+            Assert.Equal(_model.Name, _countyDtoCreate.Name);
+            Assert.Equal(_model.UfId, _countyDtoCreate.UfId);
+            Assert.Equal(_model.IBGECode, _countyDtoCreate.IBGECode);
+
+            // MODEL => UPDATE
+            var _countyDtoUpdate = Mapper.Map<CountyDtoUpdate>(_model);
+            Assert.NotNull(_countyDtoUpdate);
+            Assert.Equal(_model.Id, _countyDtoUpdate.Id);
+            Assert.Equal(_model.Name, _countyDtoUpdate.Name);
+            Assert.Equal(_model.UfId, _countyDtoUpdate.UfId);
+            Assert.Equal(_model.IBGECode, _countyDtoUpdate.IBGECode);
+
             // ENTITY => DTO
             var _toDto = Mapper.Map<CountyDto>(_toEntity);
             Assert.NotNull(_toDto);
-            Assert.Equal(_model.Id, _toDto.Id);
-            Assert.Equal(_model.Name, _toDto.Name);
-            Assert.Equal(_model.UfId, _toDto.UfId);
-            Assert.Equal(_model.IBGECode, _toDto.IBGECode);
+            Assert.Equal(_toEntity.Id, _toDto.Id);
+            Assert.Equal(_toEntity.Name, _toDto.Name);
+            Assert.Equal(_toEntity.UfId, _toDto.UfId);
+            Assert.Equal(_toEntity.IBGECode, _toDto.IBGECode);
+
+            var _toCompleteDto = Mapper.Map<CountyDtoComplete>(_entities.FirstOrDefault());
+            Assert.NotNull(_toCompleteDto);
+            Assert.NotNull(_toCompleteDto.Uf);
+            Assert.Equal(_entities.FirstOrDefault().Id, _toCompleteDto.Id);
+            Assert.Equal(_entities.FirstOrDefault().Name, _toCompleteDto.Name);
+            Assert.Equal(_entities.FirstOrDefault().UfId, _toCompleteDto.UfId);
+            Assert.Equal(_entities.FirstOrDefault().IBGECode, _toCompleteDto.IBGECode);
 
             // DTO => MODEL
             var _toModel = Mapper.Map<CountyModel>(_toDto);
@@ -76,6 +105,24 @@ namespace Api.Service.Test.AutoMapper
                 Assert.Equal(_dtoList[i].UfId, _entities[i].UfId);
                 Assert.Equal(_dtoList[i].IBGECode, _entities[i].IBGECode);
             }
+
+            // ENTITY => DTO CREATE RESULT
+            var _countyDtoCreateResult = Mapper.Map<CountyDtoCreateResult>(_toEntity);
+            Assert.NotNull(_countyDtoCreateResult);
+            Assert.Equal(_toEntity.Id, _countyDtoCreateResult.Id);
+            Assert.Equal(_toEntity.Name, _countyDtoCreateResult.Name);
+            Assert.Equal(_toEntity.UfId, _countyDtoCreateResult.UfId);
+            Assert.Equal(_toEntity.IBGECode, _countyDtoCreateResult.IBGECode);
+            Assert.Equal(_toEntity.CreatedAt, _countyDtoCreateResult.CreatedAt);
+
+            // ENTITY => DTO UPDATE RESULT
+            var _countyDtoUpdateResult = Mapper.Map<CountyDtoUpdateResult>(_toEntity);
+            Assert.NotNull(_countyDtoUpdateResult);
+            Assert.Equal(_toEntity.Id, _countyDtoUpdateResult.Id);
+            Assert.Equal(_toEntity.Name, _countyDtoUpdateResult.Name);
+            Assert.Equal(_toEntity.UfId, _countyDtoUpdateResult.UfId);
+            Assert.Equal(_toEntity.IBGECode, _countyDtoUpdateResult.IBGECode);
+            Assert.Equal(_toEntity.UpdatedAt, _countyDtoUpdateResult.UpdatedAt);
         }
     }
 }

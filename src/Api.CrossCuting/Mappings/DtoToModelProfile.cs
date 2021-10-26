@@ -28,8 +28,6 @@ namespace Api.CrossCuting.Mappings
             #region County
             CreateMap<CountyModel, CountyDto>()
                 .ReverseMap();
-            CreateMap<CountyModel, CountyDtoComplete>()
-                .ReverseMap();
             CreateMap<CountyModel, CountyDtoCreate>()
                 .ReverseMap();
             CreateMap<CountyModel, CountyDtoUpdate>()
