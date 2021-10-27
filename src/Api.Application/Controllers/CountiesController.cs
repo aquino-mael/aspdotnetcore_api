@@ -21,7 +21,7 @@ namespace Api.Application.Controllers
         #region GET
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id}", Name = "CountyById")]
         public async Task<ActionResult> Get(Guid id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -112,7 +112,7 @@ namespace Api.Application.Controllers
             {
                 var result = await _service.Post(countyDtoCreate);
                 if (result == null) return BadRequest();
-                return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
+                return Created(new Uri(Url.Link("CountyById", new { id = result.Id })), result);
             }
             catch (ArgumentException e)
             {
