@@ -21,9 +21,9 @@ namespace Api.Service.Test.Uf
 
             var _getResult = await _service.Get(IdUf);
             Assert.NotNull(_getResult);
-            Assert.Equal(_getResult.Id, IdUf);
-            Assert.Equal(_getResult.Name, Name);
-            Assert.Equal(_getResult.Initials, Initials);
+            Assert.Equal(IdUf, _getResult.Id);
+            Assert.Equal(Name, _getResult.Name);
+            Assert.Equal(Initials, _getResult.Initials);
 
             _serviceMock = new Mock<IUfService>();
             _serviceMock.Setup(uf => uf.Get(It.IsAny<Guid>())).ReturnsAsync((UfDto)null);
