@@ -14,6 +14,12 @@ namespace Api.Domain.models
             get { return _street; }
             set { _street = value; }
         }
+        private string _countyId;
+        public string CountyId
+        {
+            get { return _countyId; }
+            set { _countyId = value; }
+        }
 
         private string _number;
         public string Number
