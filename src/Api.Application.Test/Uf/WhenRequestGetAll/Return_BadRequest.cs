@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Api.Application.Controllers;
+using Api.Domain.Dtos.Uf;
+using Api.Domain.Interfaces.Services.Uf;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
+using Xunit;
+
+namespace Api.Application.Test.Uf.WhenRequestGetAll
+{
+    public class Return_BadRequest
+    {
+        private UfsController _controller;
+
+        [Fact(DisplayName = "Can do a get request in Uf endpoint.")]
+        public async Task WhenRequestGet()
+        {
+            var _serviceMock = new Mock<IUfService>();
+
+            var _ufDtos = new List<UfDto>();
+            for (int i = 0; i < 5; i++)
+            {
+                var _ufDto = new UfDto
+                {
+                    Id = Guid.NewGuid(),
+                    Initials = Faker.Address.UsStateAbbr(),
+                    Name = Faker.Address.UsState(),
+                };
+
+                _ufDtos.Add(_ufDto);
+            }
+
+            _serviceMock.Setup(ufService => ufService.GetAll()).ReturnsAsync(_ufDtos);
+
+            _controller = new UfsController(_serviceMock.Object);
+            _controller.ModelState.AddModelError("Autorização", "Você não pode acessar essa área do sistema.");
+
+            var _result = await _controller.GetAll();
+            Assert.True(_result is BadRequestObjectResult);
+        }
+    }
+}
