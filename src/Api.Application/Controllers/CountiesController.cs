@@ -42,7 +42,7 @@ namespace Api.Application.Controllers
 
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("id/{id}", Name = "GetCompleteById")]
+        [Route("complete/{id}", Name = "GetCompleteById")]
         public async Task<ActionResult> GetCompleteById(Guid id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -63,7 +63,7 @@ namespace Api.Application.Controllers
 
         [Authorize("Bearer")]
         [HttpGet]
-        [Route("ibge/{IBGECode}", Name = "GetCompleteByIBGECode")]
+        [Route("complete/ibge/{IBGECode}", Name = "GetCompleteByIBGECode")]
         public async Task<ActionResult> GetCompleteByIBGE(int IBGECode)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
