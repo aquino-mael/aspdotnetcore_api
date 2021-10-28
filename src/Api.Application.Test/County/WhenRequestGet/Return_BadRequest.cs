@@ -26,6 +26,7 @@ namespace Api.Application.Test.County.WhenRequestGet
             });
 
             _controller = new CountiesController(_serviceMock.Object);
+            _controller.ModelState.AddModelError("Id", "Id informádo é inválido.");
 
             var _getResult = await _controller.Get(Guid.NewGuid());
             Assert.True(_getResult is BadRequestObjectResult);
