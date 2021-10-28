@@ -21,7 +21,8 @@ namespace Api.Application.Controllers
 
         #region GET
         [Authorize("Bearer")]
-        [HttpGet("id/{id}")]
+        [HttpGet]
+        [Route("id/{id}", Name = "ZipCodeById")]
         public async Task<ActionResult> GetById(Guid id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -71,7 +72,8 @@ namespace Api.Application.Controllers
 
             try
             {
-                return Ok(await _service.Post(zipCodeCreate));
+                var _result = await _service.Post(zipCodeCreate);
+                return Created(new Uri(Url.Link("ZipCodeById", new { id = _result.Id })), _result);
             }
             catch (ArgumentException e)
             {

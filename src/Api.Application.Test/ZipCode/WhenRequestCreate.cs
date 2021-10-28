@@ -40,6 +40,10 @@ namespace Api.Application.Test.ZipCode
                         .ReturnsAsync(result);
 
             _controller = new ZipCodesController(_serviceMock.Object);
+
+            var url = new Mock<IUrlHelper>();
+            url.Setup(u => u.Link(It.IsAny<string>(), It.IsAny<object>())).Returns("http://localhost:5000");
+            _controller.Url = url.Object;
         }
 
         [Fact]
@@ -48,7 +52,7 @@ namespace Api.Application.Test.ZipCode
             InitializeController();
 
             var _creationResult = await _controller.Post(_zipCodeDtoCreate);
-            Assert.True(_creationResult is OkObjectResult);
+            Assert.True(_creationResult is CreatedResult);
         }
 
         [Fact]
