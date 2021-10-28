@@ -143,7 +143,7 @@ namespace Api.Application.Controllers
         #region DELETE
         [Authorize("Bearer")]
         [HttpDelete]
-        [Route("{id}", Name = "DeleteById")]
+        [Route("{id}", Name = "CountyDeleteById")]
         public async Task<ActionResult> Delete(Guid id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
