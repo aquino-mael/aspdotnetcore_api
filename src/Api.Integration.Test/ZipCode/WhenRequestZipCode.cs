@@ -106,6 +106,9 @@ namespace Api.Integration.Test.ZipCode
             Assert.NotNull(_updateResult);
             Assert.True(_updateResult.Id != default(Guid));
             Assert.Equal(_zipCodeDtoUpdate.Id, _updateResult.Id);
+            Assert.Equal(_zipCodeDtoUpdate.Street, _updateResult.Street);
+            Assert.Equal(_zipCodeDtoUpdate.ZipCode, _updateResult.ZipCode);
+            Assert.Equal(_zipCodeDtoUpdate.CountyId, _updateResult.CountyId);
 
             #endregion
 
@@ -119,6 +122,9 @@ namespace Api.Integration.Test.ZipCode
             var _deletedResult = JsonConvert.DeserializeObject<bool>(jsonResult);
             Assert.NotNull(_deletedResult);
             Assert.True(_deletedResult);
+
+            response = await client.GetAsync($"{hostApi}zipCodes/id/{_zipCodeDtoCreateResult.Id}");
+            Assert.True(HttpStatusCode.NotFound == response.StatusCode);
 
             #endregion
         }
