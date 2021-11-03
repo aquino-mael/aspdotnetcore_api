@@ -27,7 +27,7 @@ namespace Api.Application.Controllers
 
       try
       {
-        return Ok(await _service.GetAll());
+        return Ok(new { data = await _service.GetAll() });
       }
       catch (ArgumentException e)
       {
@@ -108,7 +108,7 @@ namespace Api.Application.Controllers
 
       try
       {
-        return Ok(await _service.Delete(id));
+        return Ok(new { success = await _service.Delete(id) });
       }
       catch (ArgumentException e)
       {
