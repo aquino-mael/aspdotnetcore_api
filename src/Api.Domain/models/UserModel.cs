@@ -1,5 +1,3 @@
-using System;
-
 namespace Api.Domain.models
 {
   public class UserModel : BaseModel
@@ -14,7 +12,7 @@ namespace Api.Domain.models
     private string _email;
     public string Email
     {
-      get { return _email; }
+      get { return _email.ToLower(); }
       set { _email = value; }
     }
   }
